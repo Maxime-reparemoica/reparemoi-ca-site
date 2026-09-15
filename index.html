@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Répare-moi ça | Fabrication sur mesure & impression 3D</title>
+  <meta name="description" content="Répare-moi ça développe des solutions de fabrication sur mesure pour réduire les coûts, les délais et prolonger la durée de vie des équipements.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0f0d;
+      color: #f4f7f5;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 12, 10, 0.95);
+      border-bottom: 1px solid #263129;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-content {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #63e38e;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #63e38e;
+    }
+
+    .nav-button {
+      background: #63e38e;
+      color: #071009 !important;
+      padding: 11px 18px;
+      border-radius: 8px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(99,227,142,.14), transparent 28%),
+        linear-gradient(135deg, #080b09, #101712);
+      border-bottom: 1px solid #202a23;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      color: #63e38e;
+      text-transform: uppercase;
+      font-size: .85rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: .98;
+      letter-spacing: -4px;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: #63e38e;
+    }
+
+    .hero p {
+      color: #bac5bd;
+      font-size: 1.25rem;
+      max-width: 720px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 23px;
+      border-radius: 8px;
+      font-weight: 900;
+      transition: .2s;
+    }
+
+    .button-primary {
+      background: #63e38e;
+      color: #071009;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      background: #7aed9e;
+    }
+
+    .button-secondary {
+      border: 1px solid #455149;
+      color: white;
+    }
+
+    .button-secondary:hover {
+      border-color: #63e38e;
+      color: #63e38e;
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-label {
+      color: #63e38e;
+      text-transform: uppercase;
+      font-size: .8rem;
+      letter-spacing: 2px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .section-intro {
+      color: #aeb8b1;
+      max-width: 720px;
+      font-size: 1.08rem;
+      margin-bottom: 45px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: #101512;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #151c17;
+      border: 1px solid #28332b;
+      border-radius: 12px;
+      padding: 30px;
+      min-height: 230px;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #63e38e;
+    }
+
+    .card-number {
+      color: #63e38e;
+      font-weight: 900;
+      font-size: .8rem;
+      margin-bottom: 35px;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #9faaA2;
+    }
+
+    /* INDUSTRIAL */
+
+    .industrial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .industrial-box {
+      background: linear-gradient(145deg, #172019, #101512);
+      border: 1px solid #334238;
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .part {
+      padding: 17px 0;
+      border-bottom: 1px solid #303b33;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .part:last-child {
+      border-bottom: 0;
+    }
+
+    .check {
+      color: #63e38e;
+      font-weight: bold;
+    }
+
+    /* PROCESS */
+
+    .process {
+      background: #101512;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .step {
+      padding: 25px;
+      border-top: 2px solid #63e38e;
+      background: #151b17;
+    }
+
+    .step strong {
+      display: block;
+      color: #63e38e;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: #aab4ad;
+    }
+
+    /* MISSION */
+
+    .mission {
+      text-align: center;
+    }
+
+    .mission h2 {
+      max-width: 850px;
+      margin: 0 auto 25px;
+    }
+
+    .mission p {
+      max-width: 700px;
+      margin: auto;
+      color: #aeb8b1;
+      font-size: 1.1rem;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: #63e38e;
+      color: #071009;
+    }
+
+    .contact-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .contact h2 {
+      max-width: 650px;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      max-width: 650px;
+      font-size: 1.05rem;
+    }
+
+    .contact-button {
+      background: #071009;
+      color: white;
+      padding: 17px 24px;
+      border-radius: 8px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #070a08;
+      padding: 45px 0;
+      color: #859088;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    footer a {
+      color: #63e38e;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .grid,
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .industrial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-content {
+        display: block;
+      }
+
+      .contact-button {
+        display: inline-block;
+        margin-top: 30px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">RÉPARE-MOI <span>ÇA</span></div>
+
+      <div class="nav-links">
+        <a href="#services">Solutions</a>
+        <a href="#entreprises">Entreprises</a>
+        <a href="#processus">Processus</a>
+        <a href="#contact" class="nav-button">Nous contacter</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+
+      <div class="eyebrow">Fabrication sur mesure • Québec</div>
+
+      <h1>
+        De l'idée à la <span>pièce.</span><br>
+        De la pièce unique à la production.
+      </h1>
+
+      <p>
+        Répare-moi ça développe des solutions de fabrication sur mesure
+        pour les particuliers et les entreprises : réparation,
+        conception, prototypage et fabrication additive.
+      </p>
+
+      <div class="buttons">
+        <a href="#contact" class="button button-primary">
+          Soumettre une application
+        </a>
+
+        <a href="#entreprises" class="button button-secondary">
+          Solutions pour entreprises
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <section id="services" class="services">
+    <div class="container">
+
+      <div class="section-label">Nos solutions</div>
+
+      <h2>Une pièce manque?<br>On cherche la solution.</h2>
+
+      <p class="section-intro">
+        Notre objectif est simple : identifier les pièces qui peuvent être
+        réparées, recréées ou fabriquées plus efficacement plutôt que de
+        remplacer inutilement un équipement complet.
+      </p>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-number">01</div>
+          <h3>Réparation</h3>
+          <p>
+            Recréation de certaines pièces difficiles à trouver,
+            discontinuées ou adaptées à une application précise.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">02</div>
+          <h3>Conception sur mesure</h3>
+          <p>
+            Analyse d'un besoin et développement d'une pièce adaptée
+            aux dimensions et contraintes de l'application.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">03</div>
+          <h3>Fabrication additive</h3>
+          <p>
+            Évaluation de procédés de fabrication additive pour
+            prototypes, pièces fonctionnelles et petites séries.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="entreprises">
+    <div class="container industrial-grid">
+
+      <div>
+        <div class="section-label">Répare-moi ça Entreprises</div>
+
+        <h2>Réduire un coût commence par identifier la bonne pièce.</h2>
+
+        <p class="section-intro">
+          Nous recherchons des applications industrielles où une méthode
+          de fabrication différente pourrait réduire le coût, le délai
+          d'approvisionnement ou simplifier la production.
+        </p>
+
+        <a href="#contact" class="button button-primary">
+          Faire analyser une application
+        </a>
+      </div>
+
+      <div class="industrial-box">
+
+        <div class="part">
+          <span>Gabarits d'assemblage</span>
+          <span class="check">✓</span>
+        </div>
+
+        <div class="part">
+          <span>Guides et butées</span>
+          <span class="check">✓</span>
+        </div>
+
+        <div class="part">
+          <span>Supports et fixations</span>
+          <span class="check">✓</span>
+        </div>
+
+        <div class="part">
+          <span>Boîtiers et protections</span>
+          <span class="check">✓</span>
+        </div>
+
+        <div class="part">
+          <span>Pièces sur mesure</span>
+          <span class="check">✓</span>
+        </div>
+
+        <div class="part">
+          <span>Prototypes fonctionnels</span>
+          <span class="check">✓</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="processus" class="process">
+    <div class="container">
+
+      <div class="section-label">Comment ça fonctionne</div>
+
+      <h2>Du problème à la solution.</h2>
+
+      <p class="section-intro">
+        Chaque projet commence par comprendre l'application avant de
+        proposer une méthode de fabrication.
+      </p>
+
+      <div class="steps">
+
+        <div class="step">
+          <strong>01 — Application</strong>
+          <p>
+            Vous nous présentez la pièce, le problème ou l'application.
+          </p>
+        </div>
+
+        <div class="step">
+          <strong>02 — Analyse</strong>
+          <p>
+            Nous évaluons les dimensions, contraintes, quantités et objectifs.
+          </p>
+        </div>
+
+        <div class="step">
+          <strong>03 — Prototype</strong>
+          <p>
+            Lorsque pertinent, une solution peut être prototypée et testée.
+          </p>
+        </div>
+
+        <div class="step">
+          <strong>04 — Fabrication</strong>
+          <p>
+            Après validation, nous évaluons la meilleure stratégie de production.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="mission">
+    <div class="container">
+
+      <div class="section-label">Notre vision</div>
+
+      <h2>
+        Fabriquer ce qui manque plutôt que remplacer ce qui fonctionne encore.
+      </h2>
+
+      <p>
+        Répare-moi ça est né d'une idée simple : une petite pièce ne devrait
+        pas condamner un produit ou un équipement complet. Nous voulons utiliser
+        la conception moderne et la fabrication additive pour créer des solutions
+        plus intelligentes, locales et adaptées aux besoins réels.
+      </p>
+
+    </div>
+  </section>
+
+
+  <section id="contact" class="contact">
+    <div class="container contact-content">
+
+      <div>
+        <div class="section-label" style="color:#071009;">
+          Un projet à analyser?
+        </div>
+
+        <h2>Montrez-nous votre problème. On évaluera la solution.</h2>
+
+        <p>
+          Entreprises, ateliers et particuliers peuvent nous transmettre
+          une application, des photos, dimensions ou dessins afin que nous
+          puissions effectuer une première évaluation.
+        </p>
+      </div>
+
+      <a
+        class="contact-button"
+        href="mailto:mlafondbrown@reparemoi-ca.ca?subject=Demande%20d'analyse%20-%20Répare-moi%20ça">
+        mlafondbrown@reparemoi-ca.ca
+      </a>
+
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container footer-content">
+
+      <div>
+        <strong>Répare-moi ça</strong><br>
+        Réparation • Conception • Prototypage • Fabrication additive
+      </div>
+
+      <div>
+        Québec, Canada<br>
+        <a href="mailto:mlafondbrown@reparemoi-ca.ca">
+          mlafondbrown@reparemoi-ca.ca
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
